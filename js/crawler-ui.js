@@ -21,7 +21,6 @@ const crawl = async () => {
 
   // disable button (will be re-enable at the end of the process)
   $('#fetch-and-broadcast').prop('disabled', true)
-  $('#just-broadcast').prop('disabled', true)
   // inform user that app is fetching from relays
   $('#fetching-status').text('Fetching from ' + relaySet.length + ' available relays... ')
   // show and update fetching progress bar
@@ -50,6 +49,8 @@ const crawl = async () => {
   // inform user fetching is done
   $('#fetching-status').html('Fetching from ' + relaySet.length + ' available relays... ' + checkMark)
   $('#fetching-progress').val(relaySet.length)
+
+  $('#fetch-and-broadcast').prop('disabled', false)
 }
 
 // Request a weekday along with a long date
