@@ -276,7 +276,10 @@ button {
   word-wrap: break-word;
 }
 
-
+button:disabled, button[disabled]{
+  cursor: not-allowed;
+  background-color: #333333;
+}
 
 .gray {
   background-color: rgba(183, 177, 168, 0.3);
