@@ -48,7 +48,7 @@ const crawl = async () => {
   await processInPool(relaySet, (relay) => fetchFromRelay(relay, filterObj, events, "fetching-relays"), 10, (progress) => $('#fetching-progress').val(progress))
 
   // inform user fetching is done
-  $('#fetching-status').html(txt.fetching + checkMark)
+  $('#fetching-status').html('Fetching from ' + relaySet.length + ' available relays... ' + checkMark)
   $('#fetching-progress').val(relaySet.length)
 }
 
