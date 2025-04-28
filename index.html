@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Primary Meta Tags -->
+  <title>Nostr Kind Crawler</title>
+  <meta name="title" content="Nostr Kind Crawler" />
+  <meta name="description" content="Fetch the latest nostr event for a given kind" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://kinds.amethyst.social/img/icon.png" type="image/x-icon" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Lightning -->
+  <meta name="lightning" content="vitor@vitorpamplona.com" />
+  <!-- PWA -->
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="apple-touch-icon" href="https://kinds.amethyst.social/img/icon.png" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Nostr Kind Crawler">
+  <meta property="og:description" content="Find any event, anywhere">
+  <meta property="og:image" content="https://kinds.amethyst.social/img/crawler-card-wide.png">
+  <!-- Replace with the URL of your larger image -->
+  <meta property="og:url" content="https://kinds.amethyst.social">
+</head>
+
+<body>
+
+  <main class="container">
+    <div class="header-space">
+      <h1>Check if an event kind is being used</h1>
+    </div>
+    <div>
+      <form>
+        <div>
+          <div class="space-between-small-left">
+            <p>
+              Kind: 
+              <input type="text" class="cool-field" id="kind" name="kind" value=""
+                placeholder="1010" />
+            </p>
+          </div>
+        </div>
+        <br>
+        <p>
+          <button id="fetch-and-broadcast" onclick="crawl(); return false;">
+            Crawl
+          </button>
+        </p>
+      </form>
+    </div>
+
+    </div>
+    <div class="box" id="sample-box" style="visibility: hidden">
+      <div class="box-content">
+        <p>Sample</p>
+      </div>
+      <div class="box-content">
+        <pre id="fetching-code"></pre>
+      </div>
+    </div>
+    <div class="box" id="fetching-box" style="visibility: hidden">
+      <div class="box-content">
+        <p id="fetching-status"></p>
+        <p style="padding-top: 2px">
+          <progress type="range" id="fetching-progress" name="fetching-progress" min="0" max="180" value="0" style="visibility: hidden" />
+        </p>
+      </div>
+      <div class="box-content" id="fetching-relays-box">
+        <table id="fetching-relays" class="fullwidth">
+          <tr id="fetching-relays-header"></tr>
+        </table>
+      </div>
+      <div class="box-content">
+        <p id="events-found"></p>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/jquery-3.6.2.min.js"></script>
+  <script src="js/promise-pool.js"></script>
+  <script src="js/nostr-sign.js"></script>
+  <script src="js/nostr-filter.js"></script>
+  <script src="js/nostr-relay.js"></script>
+  <script src="js/relays.js"></script>
+  <script src="js/crawler-ui.js"></script>
+    
+</html>
